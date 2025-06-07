@@ -42,3 +42,9 @@ export default async function handler(req, res) {
 
   res.status(200).json({ message: `Synced ${rows.length} bundles to sheet.` });
 }
+
+export const config = {
+    runtime: 'nodejs18.x',
+    schedule: '0 8 * * *' // This runs daily at 8AM UTC
+  };
+  
