@@ -6,11 +6,13 @@ export default async function handler(req, res) {
   const SHOPIFY_TOKEN = process.env.SHOPIFY_TOKEN;
   const SPREADSHEET_ID = process.env.SHEET_ID;
 
+  const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
+
   const auth = new google.auth.GoogleAuth({
-    keyFile: './google-service-account.json',
+    credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY),
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
-
+  
   const sheets = google.sheets({ version: 'v4', auth });
 
   const shopifyRes = await axios.get(`${SHOPIFY_API_URL}/products.json?limit=250&fields=id,title,body_html,handle,variants,images,tags`, {
