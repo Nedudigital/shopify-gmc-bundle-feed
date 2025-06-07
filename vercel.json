@@ -1,16 +1,15 @@
 {
-    "functions": {
-      "api/sync.js": {
-        "runtime": "nodejs18.x",
-        "memory": 512,
-        "maxDuration": 10
-      }
-    },
-    "crons": [
-      {
-        "path": "/api/sync",
-        "schedule": "0 8 * * *"
-      }
-    ]
-  }
-  
+  "functions": {
+    "api/sync.js": {
+      "runtime": "nodejs18.x",
+      "memory": 512,
+      "maxDuration": 10
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/sync",
+      "schedule": "0 8 * * *"
+    }
+  ]
+}
